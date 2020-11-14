@@ -1,0 +1,34 @@
+
+<mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="idMedico">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.idMedico}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="nombres">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>nombres </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.nombres}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="apellidos">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>apellidos </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.apellidos}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="fotoUrl">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>fotoUrl </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.fotoUrl}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="cmp">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>cmp </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.cmp}} </mat-cell>
+    </ng-container>
+
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: displayedColumns;">
+
+</mat-row>
+
+
+</mat-table>
