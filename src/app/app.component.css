@@ -15,3 +15,12 @@
 .example-spacer{
     flex: 1 1 auto;
 }
+
+.mat-icon-home {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    width: 100px;
+    height: 100px;
+    font-size: 56px;
+}

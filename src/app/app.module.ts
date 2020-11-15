@@ -13,13 +13,19 @@ import { PacientesComponent } from './pages/pacientes/pacientes.component';
 import { MedicosComponent } from './pages/medicos/medicos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ExamenesComponent } from './pages/examenes/examenes.component';
+import { HomeComponent } from './pages/home/home.component';
+import { EspecialidadesComponent } from './pages/especialidades/especialidades.component';
+import { ConsultasComponent } from './pages/consultas/consultas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PacientesComponent,
     MedicosComponent,
-    ExamenesComponent
+    ExamenesComponent,
+    HomeComponent,
+    EspecialidadesComponent,
+    ConsultasComponent
   ],
   imports: [
     ReactiveFormsModule,
