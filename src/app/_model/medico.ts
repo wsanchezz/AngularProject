@@ -1,5 +1,5 @@
-export class Medico{
-    idMedico: number;
+export class Medico {
+    idMedico?: number;
     nombres: string;
     apellidos: string;
     fotoUrl: null;

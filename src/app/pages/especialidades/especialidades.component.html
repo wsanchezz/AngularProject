@@ -1,1 +1,53 @@
-<p>especialidades works!</p>
+<div class="example-header" align="center"
+    style="margin-top: 0%; background-color: #ffbb33; color: #7313AF; height: 120px;">
+    <br>
+    <mat-form-field style="width: 85%;">
+        <input matInput (keyup)="filtrar($event.target.value)" placeholder="Buscar paciente">
+    </mat-form-field>
+</div>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" align="center">
+
+    <mat-form-field class="example-full-width" style="padding: 10px;">
+        <mat-label for="nombre">
+            Ingrese especialidad
+        </mat-label>
+        <input matInput placeholder="Marco Eduardo" id="nombre" type="text" formControlName="nombre" maxlength="35">
+    </mat-form-field>
+
+    <button class="button" type="submit" mat-raised-button style="width: 95%; background-color: #25A57A; color: white;">
+        Agregar
+    </button>
+
+</form>
+
+<mat-table [dataSource]="dataSource" matSort style="margin-top: 2%;">
+    <ng-container matColumnDef="idEspecialidad">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.idEspecialidad}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Especialidad </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Acciones </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <!-- <button mat-button color="primary"><mat-icon>ballot</mat-icon></button> -->
+            <button (click)="ondelete(row.idEspecialidad)" mat-button color="accent">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+
+    </mat-row>
+
+
+</mat-table>

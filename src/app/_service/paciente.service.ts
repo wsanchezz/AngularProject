@@ -7,14 +7,21 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PacienteService {
-
+  urlid;
   url: string = `${environment.HOST}/pacientes`
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-
-
-  listar(){
+  listar() {
     return this.http.get<Paciente[]>(this.url);
+  }
+
+  agregar(paciente: any) {
+    return this.http.post<Paciente[]>(this.url, paciente);
+  }
+
+  borrar(id: string) {
+    this.urlid = `${environment.HOST}/pacientes/${id}`
+    return this.http.delete(this.urlid)
   }
 }

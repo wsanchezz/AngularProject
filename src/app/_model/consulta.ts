@@ -1,5 +1,8 @@
 export class Consulta{
-    idExamen?: number;
-    descripcion: string;
-    nombre: string;
+    idConsulta?: number;
+    fecha: string;
+    numConsultorio: string;
+    idEspecialidad: number;
+    idMedico: number;
+    idPaciente: number;
 }

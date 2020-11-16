@@ -1,37 +1,101 @@
-<div class="example-header">
-    <mat-form-field>
+<div class="example-header" align="center" style="margin-top: 0%; background-color: #ffbb33; color: #7313AF; height: 120px;" >
+    <br>
+    <mat-form-field style="width: 85%;">
         <input matInput (keyup)="filtrar($event.target.value)" placeholder="Buscar paciente">
     </mat-form-field>
 </div>
 
-<mat-table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="idPaciente">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>ID </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.idPaciente}} </mat-cell>
-    </ng-container>
-    
-    <ng-container matColumnDef="nombres">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>nombres </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.nombres}} </mat-cell>
-    </ng-container>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" align="center">
 
-    <ng-container matColumnDef="apellidos">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>apellidos </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.apellidos}} </mat-cell>
-    </ng-container>
+    <mat-form-field class="example-full-width" style="padding: 10px;">
+        <mat-label for="nombres">
+            Nombres
+        </mat-label>
+        <input matInput placeholder="Marco Eduardo" id="nombres" type="text" formControlName="nombres" maxlength="35">
+    </mat-form-field>
 
-    <ng-container matColumnDef="acciones">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>acciones </mat-header-cell>
-        <mat-cell *matCellDef="let row">
-        <button mat-button color="primary"><mat-icon>ballot</mat-icon></button>
-        <button mat-button color="accent"><mat-icon>delete</mat-icon></button>
-    </mat-cell>
-    </ng-container>
+    <mat-form-field class="example-full-width" style="padding: 10px;">
+        <mat-label for="apellidos">
+            Apellidos
+        </mat-label>
+        <input matInput placeholder="Ochoa Flips" id="apellidos" type="text" formControlName="apellidos" maxlength="35">
+    </mat-form-field>
 
-<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-<mat-row *matRowDef="let row; columns: displayedColumns;">
+    <mat-form-field class="example-full-width" style="padding: 10px;">
+        <mat-label for="dni">
+            Dni
+        </mat-label>
+        <input matInput placeholder="(Ocho dígitos requeridos)" id="dni" type="text" formControlName="dni" maxlength="8"
+            oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
+    </mat-form-field>
 
-</mat-row>
+    <mat-form-field class="example-full-width" style="padding: 10px;">
+        <mat-label for="direccion">
+            Direccion
+        </mat-label>
+        <input matInput placeholder="Zona 1 2-53" id="direccion" type="text" formControlName="direccion" maxlength="20">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" style="padding: 10px;">
+        <mat-label for="telefono">
+            Telefono
+        </mat-label>
+        <input matInput placeholder="(Nueve dígitos requeridos)" id="telefono" type="text" formControlName="telefono"
+            maxlength="9"
+            oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
+    </mat-form-field>
+
+    <br>
+    <button class="button" type="submit" mat-raised-button style="width: 95%; background-color: #9B3722; color: white;">
+        Agregar
+    </button>
+</form>
+
+<div class="examenes-container" style="margin-top: 2%;">
+    <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="idPaciente">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>ID </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.idPaciente}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="nombres">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>nombres </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.nombres}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="apellidos">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>apellidos </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.apellidos}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dni">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>dni </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.dni}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="direccion">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>direccion </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.direccion}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="telefono">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>telefono </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.telefono}} </mat-cell>
+        </ng-container>
 
 
-</mat-table>
+        <ng-container matColumnDef="acciones">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>acciones </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <button mat-button color="accent" (click)="ondelete(row.idPaciente)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+
+        </mat-row>
+    </mat-table>
+</div>

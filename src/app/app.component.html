@@ -1,57 +1,60 @@
 <div class="example-container">
   <mat-toolbar class="example-toolbar" style="background-color: #ffbb33;">
+
     <mat-divider></mat-divider>
     <button mat-menu-item routerLink="/home" style="cursor: pointer">
-      <mat-icon class="mat-icon-home" aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+      <mat-icon class="mat-icon" aria-hidden="false" aria-label="Example home icon" style="color: #139DAF;">
+        local_hospital</mat-icon>
+      <span style="color: #139DAF; font-weight: 700;">Hospital</span>
     </button>
+    <div style="width: 450%;"></div>
 
     <mat-divider></mat-divider>
     <button mat-menu-item routerLink="/consultas" style="cursor: pointer">
-      <mat-icon style="color: purple;">insert_drive_file</mat-icon>
-      <span style="color: purple;">Consultas</span>
+      <mat-icon style="color: white;">insert_drive_file</mat-icon>
+      <span style="color: white;">Consultas</span>
     </button>
 
     <mat-divider></mat-divider>
     <button mat-menu-item routerLink="/especialidades" style="cursor: pointer">
-      <mat-icon style="color: purple;">view_carousel</mat-icon>
-      <span style="color: purple;">Especialidades</span>
+      <mat-icon style="color: white;">view_carousel</mat-icon>
+      <span style="color: white;">Especialidades</span>
     </button>
 
     <mat-divider></mat-divider>
     <button mat-menu-item routerLink="/medicos" style="cursor: pointer">
-      <mat-icon style="color: purple;">star_rate</mat-icon>
-      <span style="color: purple;">Medicos</span>
+      <mat-icon style="color: white;">star_rate</mat-icon>
+      <span style="color: white;">Medicos</span>
     </button>
 
     <mat-divider></mat-divider>
     <button mat-menu-item routerLink="/examenes" style="cursor: pointer">
-      <mat-icon style="color: purple;">healing</mat-icon>
-      <span style="color: purple;">Examenes</span>
+      <mat-icon style="color: white;">healing</mat-icon>
+      <span style="color: white;">Examenes</span>
     </button>
 
     <mat-divider></mat-divider>
     <button mat-menu-item routerLink="/pacientes" style="cursor: pointer">
-      <mat-icon style="color: purple;">assignment</mat-icon>
-      <span style="color: purple;">Pacientes</span>
+      <mat-icon style="color: white;">assignment</mat-icon>
+      <span style="color: white;">Pacientes</span>
     </button>
 
     <h1 class="example-app-name"></h1>
     <span class="example-spacer"></span>
 
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon>more_vert</mat-icon>
-    </button>
+
 
     <mat-menu #menu="matMenu">
       <button mat-menu-item routerLink="/perfil">
         <mat-icon>account_box</mat-icon>
-        <span>asdasd</span>
+
       </button>
       <button mat-menu-item (click)="sidenav.opened = false">
         <mat-icon>exit_to_app</mat-icon>
-        <span>asdasd</span>
+ 
       </button>
     </mat-menu>
+    
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container">

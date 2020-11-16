@@ -6,7 +6,7 @@ import { getMatIconFailedToSanitizeLiteralError } from '@angular/material/icon';
 import { FormBuilder } from '@angular/forms';
 import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 import { HttpClient } from '@angular/common/http';
-import {environment} from '../../../environments/environment'
+import { environment } from '../../../environments/environment'
 
 @Component({
   selector: 'app-examenes',
@@ -17,20 +17,19 @@ export class ExamenesComponent implements OnInit {
   checkoutForm;
   url: string = 'http://localhost:8080/examenes';
 
-  displayedColumns = ['idExamen','nombre','descripcion', 'acciones'];
+  displayedColumns = ['idExamen', 'nombre', 'descripcion', 'acciones'];
   dataSource: MatTableDataSource<Examen>
 
-
   constructor(
-    private ExamenSer : ExamenService,
-    private formbuilder : FormBuilder,
-    private http : HttpClient 
-    ) { 
-      this.checkoutForm = this.formbuilder.group({
-        nombre: '',
-        descripcion: ''
-      });
-     }
+    private ExamenSer: ExamenService,
+    private formbuilder: FormBuilder,
+    private http: HttpClient
+  ) {
+    this.checkoutForm = this.formbuilder.group({
+      nombre: '',
+      descripcion: ''
+    });
+  }
 
 
   ngOnInit() {
@@ -43,9 +42,9 @@ export class ExamenesComponent implements OnInit {
     this.ExamenSer.agregar(customerData).subscribe(data => /*this.checkoutForm.reset()*/ window.location.reload())
   }
 
-  ondelete(id){
+  ondelete(id) {
     this.ExamenSer.borrar(id).subscribe(data => window.location.reload())
   }
-  
+
 
 }

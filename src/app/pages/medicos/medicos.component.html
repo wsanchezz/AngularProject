@@ -1,10 +1,46 @@
+<div class="example-header" align="center"
+    style="margin-top: 0%; background-color: #ffbb33; color: #7313AF; height: 120px;">
+    <br>
+    <mat-form-field style="width: 85%;">
+        <input matInput (keyup)="filtrar($event.target.value)" placeholder="Buscar medico">
+    </mat-form-field>
+</div>
 
-<mat-table [dataSource]="dataSource" matSort>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" align="center">
+
+    <mat-form-field class="example-full-width" style="padding: 10px;">
+        <mat-label for="nombres">
+            Nombres
+        </mat-label>
+        <input matInput placeholder="Ochoa Flips" id="nombres" type="text" formControlName="nombres" maxlength="35">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" style="padding: 10px;">
+        <mat-label for="apellidos">
+            Apellidos
+        </mat-label>
+        <input matInput placeholder="Ochoa Flips" id="apellidos" type="text" formControlName="apellidos" maxlength="35">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" style="padding: 10px;">
+        <mat-label for="cmp">
+            CMP
+        </mat-label>
+        <input matInput placeholder="Ochoa Flips" id="cmp" type="text" formControlName="cmp" maxlength="35">
+    </mat-form-field>
+
+    <button class="button" type="submit" mat-raised-button style="width: 95%; background-color: #72209B; color: white;">
+        Agregar
+    </button>
+
+</form>
+
+<mat-table [dataSource]="dataSource" matSort style="margin-top: 2%;">
     <ng-container matColumnDef="idMedico">
         <mat-header-cell *matHeaderCellDef mat-sort-header>ID </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.idMedico}} </mat-cell>
     </ng-container>
-    
+
     <ng-container matColumnDef="nombres">
         <mat-header-cell *matHeaderCellDef mat-sort-header>nombres </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.nombres}} </mat-cell>
@@ -25,10 +61,21 @@
         <mat-cell *matCellDef="let row"> {{row.cmp}} </mat-cell>
     </ng-container>
 
-<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-<mat-row *matRowDef="let row; columns: displayedColumns;">
+    <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Acciones </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <!-- <button mat-button color="primary"><mat-icon>ballot</mat-icon></button> -->
+            <button (click)="ondelete(row.idMedico)" mat-button color="accent">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
 
-</mat-row>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+
+    </mat-row>
 
 
 </mat-table>

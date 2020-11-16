@@ -1,57 +1,64 @@
-<mat-table [dataSource]="dataSource" matSort>
+<div class="example-header" align="center"
+  style="margin-top: 0%; background-color: #ffbb33; color: #7313AF; height: 120px;">
+  <br>
+  <mat-form-field style="width: 85%;">
+    <input matInput (keyup)="filtrar($event.target.value)" placeholder="Buscar examen">
+  </mat-form-field>
+</div>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" align="center">
+
+  <mat-form-field class="example-full-width" style="padding: 10px;">
+    <mat-label for="nombre">
+      Titulo
+    </mat-label>
+    <input matInput id="nombre" type="text" formControlName="nombre">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" style="padding: 10px;">
+    <mat-label for="descripcion">
+      Descripcion
+    </mat-label>
+    <input matInput id="descripcion" type="text" formControlName="descripcion">
+  </mat-form-field>
+
+  <button class="button" type="submit" mat-raised-button style="width: 95%; background-color: #3B7220; color: white;">
+    Agregar
+  </button>
+
+</form>
+
+<div class="examenes-container"  style="margin-top: 2%;">
+  <mat-table class="data-table" [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="idExamen">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>ID </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.idExamen}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>ID </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.idExamen}} </mat-cell>
     </ng-container>
-    
+
     <ng-container matColumnDef="nombre">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>nombres </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>nombres </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="descripcion">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>descripcion </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.descripcion}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>descripcion </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.descripcion}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="apellidos">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>apellidos </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.apellidos}} </mat-cell>
-    </ng-container>
 
     <ng-container matColumnDef="acciones">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>acciones </mat-header-cell>
-        <mat-cell *matCellDef="let row">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>acciones </mat-header-cell>
+      <mat-cell *matCellDef="let row">
         <!-- <button mat-button color="primary"><mat-icon>ballot</mat-icon></button> -->
-        <button (click)="ondelete(row.idExamen)" mat-button color="accent"><mat-icon>delete</mat-icon></button>
-    </mat-cell>
+        <button (click)="ondelete(row.idExamen)" mat-button color="accent">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
     </ng-container>
 
-<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-<mat-row *matRowDef="let row; columns: displayedColumns;">
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
 
-</mat-row>
-
-
-</mat-table>
-
-
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
-
-    <div>
-      <label for="nombre">
-        Titulo
-      </label>
-      <input id="nombre" type="text" formControlName="nombre">
-    </div>
-  
-    <div>
-      <label for="descripcion">
-        Descripcion
-      </label>
-      <input  id="descripcion" type="text" formControlName="descripcion">
-    </div>
-  
-    <button class="button" type="submit">Purchase</button>
-  
-  </form>
+    </mat-row>
+  </mat-table>
+</div>

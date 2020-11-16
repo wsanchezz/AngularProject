@@ -1,0 +1,16 @@
+.paciente-container{
+    display: flex;
+    /* background-color: red; */
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+.search-input{
+    align-self: center;
+    width: 85%;
+    margin-top: 1%;
+}
+.data-table{
+    width: 85%;
+    align-self: center;
+}

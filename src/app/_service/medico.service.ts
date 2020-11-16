@@ -7,7 +7,8 @@ import { Medico } from './../_model/medico';
   providedIn: 'root'
 })
 export class MedicoService {
-  url: string = `${environment.HOST}/medicos`
+  urlid;
+  url: string = `${environment.HOST}/medicos`;
 
   constructor(private http : HttpClient) { }
 
@@ -17,5 +18,14 @@ export class MedicoService {
 
   lista(){
     return this.http.get<Medico[]>(this.url);
+  }
+
+  agregar(medi: any){
+    return this.http.post<Medico[]>(this.url, medi);
+  }
+
+  borrar(id: string){
+    this.urlid = `${environment.HOST}/medicos/${id}`
+    return this.http.delete(this.urlid)
   }
 }
