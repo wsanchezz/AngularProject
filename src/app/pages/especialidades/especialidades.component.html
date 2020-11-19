@@ -2,7 +2,7 @@
     style="margin-top: 0%; background-color: #ffbb33; color: #7313AF; height: 120px;">
     <br>
     <mat-form-field style="width: 85%;">
-        <input matInput (keyup)="filtrar($event.target.value)" placeholder="Buscar paciente">
+        <input matInput (keyup)="filtrar($event.target.value)" placeholder="Buscar especialidad">
     </mat-form-field>
 </div>
 
@@ -12,7 +12,7 @@
         <mat-label for="nombre">
             Ingrese especialidad
         </mat-label>
-        <input matInput placeholder="Marco Eduardo" id="nombre" type="text" formControlName="nombre" maxlength="35">
+        <input matInput placeholder="Ingrese especialidad" id="nombre" type="text" formControlName="nombre" maxlength="35">
     </mat-form-field>
 
     <button class="button" type="submit" mat-raised-button style="width: 95%; background-color: #25A57A; color: white;">

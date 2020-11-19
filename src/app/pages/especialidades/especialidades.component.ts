@@ -37,6 +37,10 @@ export class EspecialidadesComponent implements OnInit {
     });
   }
 
+  filtrar(valor: string) {
+    this.dataSource.filter = valor.trim().toLowerCase();
+  }
+
   onSubmit(customerData) {
     if (customerData.nombre != "") {
       this.EspSer.agregar(customerData).subscribe(data => window.location.reload())

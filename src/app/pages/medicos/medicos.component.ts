@@ -33,6 +33,10 @@ export class MedicosComponent implements OnInit {
     });
   }
 
+  filtrar(valor: string) {
+    this.dataSource.filter = valor.trim().toLowerCase();
+  }
+
   onSubmit(customerData) {
     this.medicoSer.agregar(customerData).subscribe(data => window.location.reload())
   }

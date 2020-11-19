@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'pacientes', component: PacientesComponent },
   { path: 'medicos', component: MedicosComponent },
   { path: 'examenes', component: ExamenesComponent },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'especialidades', component: EspecialidadesComponent },
   { path: 'consultas', component: ConsultasComponent }
 ];

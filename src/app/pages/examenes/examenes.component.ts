@@ -38,6 +38,10 @@ export class ExamenesComponent implements OnInit {
     });
   }
 
+  filtrar(valor: string) {
+    this.dataSource.filter = valor.trim().toLowerCase();
+  }
+
   onSubmit(customerData) {
     this.ExamenSer.agregar(customerData).subscribe(data => /*this.checkoutForm.reset()*/ window.location.reload())
   }
