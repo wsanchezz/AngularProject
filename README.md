@@ -15,7 +15,7 @@ Entrar a la carpeta despues de clonar el proyecto `cd AngularProject`
 
 Nota: preferiblemente usar yarn por compatibilidad y resolucion de versiones
 ```
-    yarn Install
+    yarn install
 ```
 
 ## Correr el servidor
