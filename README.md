@@ -11,7 +11,7 @@ Generamos este proyecto con [Angular CLI](https://github.com/angular/angular-cli
 
 ## Instalar los Node modules
 
-Entrar a la carpeta despues de clonar el proyecto `AngularProject`
+Entrar a la carpeta despues de clonar el proyecto `cd AngularProject`
 
 Nota: preferiblemente usar yarn por compatibilidad y resolucion de versiones
 ```
